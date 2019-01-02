@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  local_terraform_modules:
+services:
+  terraform:
+      build: ./terraform
+      command: apply -auto-approve
+      volumes:
+        - ./terraform:/terraform
+        - local_terraform_modules:/terraform/local/.terraform
+        - ~/.gcp:/root/.gcp
+
+      
+     
+    
